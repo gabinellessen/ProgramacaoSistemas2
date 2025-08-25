@@ -1,16 +1,22 @@
-public class Episodio extends Midia {
+public class Episodio {
+    private String titulo;
     private long duracao;
 
-    public Episodio(String titulo, long duracao){
-        super(titulo);
+    public Episodio(String titulo, long duracao) {
+        this.titulo = titulo;
         this.duracao = duracao;
     }
 
-    public long getDuracao(){
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public long getDuracao() {
         return duracao;
     }
 
-    public String info(){
-        return "Episódio: " + super.info() + "; Duração: " + duracao;
+    @Override
+    public String toString() {
+        return "Episódio: " + titulo + " (" + duracao + " min)";
     }
 }

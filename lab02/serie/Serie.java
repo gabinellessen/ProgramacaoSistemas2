@@ -1,27 +1,40 @@
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Serie extends Midia {
-    private long duracao;
+    private List<Temporada> temporadas;
 
-    public Serie(String titulo, long duracao) {      
+    public Serie(String titulo) {
         super(titulo);
-        this.duracao = duracao;
+        this.temporadas = new ArrayList<>();
     }
-    public List<Midia> adicionarSerie(List<Midia> midias, Scanner sc) {
-        System.out.println("\n---ADICIONAR SERIE ---");
-        System.out.println("Digite o titulo do serie: ");
-        String titulo = sc.nextLine();        
-        midias.add(serie);
-        return midias;
+
+    public void adicionarTemporada(Temporada temp) {
+        temporadas.add(temp);
     }
+
+    public List<Temporada> getTemporadas() {
+        return temporadas;
+    }
+
     @Override
     public long getDuracao() {
-        return duracao;
+        long total = 0;
+        for (Temporada t : temporadas) {
+            for (Episodio ep : t.getEpisodios()) {
+                total += ep.getDuracao();
+            }
+        }
+        return total;
     }
 
     @Override
     public String info() {
-        return "Serie: " + super.info();
+        StringBuilder sb = new StringBuilder();
+        sb.append("Série: ").append(getTitulo()).append("\n");
+        for (Temporada t : temporadas) {
+            sb.append(t);
+        }
+        return sb.toString();
     }
 }
