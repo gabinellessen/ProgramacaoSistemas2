@@ -1,5 +1,20 @@
-Teclado do professor;50;Logitech
-Mouse;35;Microsoft
-Pão de queijo;100;Borges
-Coca-cola;10;Bar do Zé
-Teclado Multimidia;200;Microsoft
+Câmera Digital;1200;Canon
+Fone de Ouvido Intra-auricular;80;Sony
+Smartwatch Esportivo;350;Xiaomi
+Carregador Portátil;60;Samsung
+Caixa de Som Bluetooth;150;JBL
+Monitor Gamer 27";1800;AOC
+Placa de Vídeo GTX 1660;1800;Nvidia
+Memória RAM 16GB;320;Corsair
+HD Externo 2TB;420;Seagate
+SSD 480GB;250;Kingston
+Impressora Laser;700;Brother
+Tablet 8 Polegadas;850;Multilaser
+Webcam HD;110;Logitech
+Microfone USB;200;Blue
+Teclado sem fio;120;Microsoft
+Mousepad Gamer;45;Razer
+Roteador Mesh;350;TP-Link
+Caixa Organizadora;30;Plasútil
+Relógio de Parede;40;Herweg
+Ventilador de Coluna;220;Mondial
