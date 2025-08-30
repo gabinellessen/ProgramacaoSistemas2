@@ -1,27 +1,34 @@
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
-public class Temporada extends Midia {
+public class Temporada {
+    private int numero;
     private List<Episodio> episodios;
 
-    public Temporada(int numero){
-        super("Número: " + numero);
-        episodios = new ArrayList<>();
+    public Temporada(int numero) {
+        this.numero = numero;
+        this.episodios = new ArrayList<>();
     }
 
-    public void adicionar(Episodio ep) {
+    public void adicionarEpisodio(Episodio ep) {
         episodios.add(ep);
     }
 
-    public long getDuracao(){
-        long duracao = 0;
-        for (int i = 0; i < episodios.size(); i++) {
-            duracao += episodios.get(i).getDuracao();
-        }
-        return duracao;
+    public List<Episodio> getEpisodios() {
+        return episodios;
     }
 
-    public String info(){
-        return "Temporada: " + super.info() + "; Duração: " + getDuracao();
+    public int getNumero() {
+        return numero;
     }
-}   
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("  Temporada ").append(numero).append(":\n");
+        for (Episodio ep : episodios) {
+            sb.append("    ").append(ep).append("\n");
+        }
+        return sb.toString();
+    }
+}
