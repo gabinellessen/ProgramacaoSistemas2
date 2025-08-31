@@ -87,22 +87,25 @@ public class App {
     }
 
     public static void main(String[] args) {
-        List<String> linhas;
-        Path arquivo = Paths.get("ProgramacaoSistemas2/produtos.txt");
-        List<Produto> produtos = new ArrayList<>();
-        
-        //retirar depois
-        System.out.println("Tentando ler: " + arquivo.toAbsolutePath());
-        try {
-            linhas = Files.readAllLines(arquivo);
-            for (String linha : linhas) {
-                String[] c = linha.split(";");
-                Produto p = new Produto(c[0], Double.parseDouble(c[1]), c[2]);
-                produtos.add(p);
-            }
-            menuPrincipal(produtos);
-        } catch (IOException e) {
-            System.out.println("Erro ao carregar os produtos");
-        }
+    List<String> linhas;
+    Path arquivo = Paths.get("produtos.txt");
+    List<Produto> produtos = new ArrayList<>();
+
+    if (!Files.exists(arquivo)) {
+        System.out.println("Arquivo não encontrado: " + arquivo.toAbsolutePath());
+        return;
     }
-}
+
+    try {
+        linhas = Files.readAllLines(arquivo);
+        for (String linha : linhas) {
+            String[] c = linha.split(";");
+            Produto p = new Produto(c[0], Double.parseDouble(c[1]), c[2]);
+            produtos.add(p);
+        }
+        menuPrincipal(produtos);
+    } catch (IOException e) {
+        System.out.println("Erro ao carregar os produtos: " + e.getMessage());
+        e.printStackTrace();
+    }
+    }}
