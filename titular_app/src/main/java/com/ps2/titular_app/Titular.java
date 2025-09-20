@@ -1,31 +1,34 @@
 package com.ps2.titular_app;
-
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Titular {
-    @Id @GeneratedValue
-    private long id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String nome;
     private String cpf;
-    
-    public Titular() {
-    }
 
-    public Titular(long id, String nome, String cpf) {
-        this.id = id;
+    // Construtor padrão (obrigatório para JPA)
+    public Titular() {}
+
+    // Construtor para facilitar criação manual
+    public Titular(String nome, String cpf) {
         this.nome = nome;
         this.cpf = cpf;
     }
 
-    public long getId() {
+    // Getters e Setters
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -45,9 +48,13 @@ public class Titular {
         this.cpf = cpf;
     }
 
+    // Para facilitar a exibição no console
     @Override
     public String toString() {
-        return "Titular [id=" + id + ", nome=" + nome + ", cpf=" + cpf + "]";
+        return "Titular{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", cpf='" + cpf + '\'' +
+                '}';
     }
-    
 }
